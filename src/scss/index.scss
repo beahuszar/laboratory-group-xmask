@@ -10,9 +10,16 @@ html {
   box-sizing: border-box;
 }
 
+html,
+body {
+  position: fixed;
+  overflow: hidden;
+}
+
 body {
   background-color: $background_yellow;
   height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 5vh 0 0;
   text-align: center;
