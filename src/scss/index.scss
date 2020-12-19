@@ -1,5 +1,24 @@
 @import 'variables.scss';
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: $background_yellow;
+  height: 100vh;
+  margin: 0;
+  padding: 5vh 0 0;
+  text-align: center;
+}
+
+.labgroup-logo {
+  height: 10vh;
+  margin: 5vh;
 }
