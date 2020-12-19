@@ -64,5 +64,15 @@ body {
       margin: 0 auto;
       top: 25%;
     }
+
+    .arrow-down {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 10%;
+      top: 50%;
+      animation: bounce 2s infinite;
+    }
   }
 }
