@@ -39,6 +39,21 @@ body {
 }
 
 .santa-woman {
-  height: 65vh;
-  margin-top: auto;
+  &__container {
+    height: 65vh;
+    width: 100%;
+    margin-top: auto;
+    background: url('images/woman.png') bottom no-repeat;
+    background-size: auto 100%;
+  }
+
+  &__mask {
+    margin: 0 auto;
+    width: calc(65vh / 3);
+    transform: translate(3px, calc(65vh * 0.43));
+
+    img {
+      width: 100%;
+    }
+  }
 }
