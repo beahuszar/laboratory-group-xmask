@@ -40,7 +40,7 @@ body {
 
 .santa-woman {
   &__container {
-    height: 65vh;
+    height: $santa-woman-height;
     width: 100%;
     margin-top: auto;
     background: url('images/woman.png') bottom no-repeat;
@@ -49,11 +49,20 @@ body {
 
   &__mask {
     margin: 0 auto;
-    width: calc(65vh / 3);
-    transform: translate(3px, calc(65vh * 0.43));
+    width: calc(#{$santa-woman-height} / 3);
+    transform: translate(3px, calc(#{$santa-woman-height} * 0.43));
 
-    img {
+    &-img {
       width: 100%;
+    }
+
+    &-text {
+      width: 55%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      top: 25%;
     }
   }
 }
