@@ -44,8 +44,8 @@ function maskAnimationOver(e) {
 
 function dragStart(e) {
   active = true;
-  if (mask.style.transition !== '') {
-    mask.style.transition = '';
+  if (maskContainer.style.transition !== '') {
+    maskContainer.style.transition = '';
   }
   music.play();
 }
