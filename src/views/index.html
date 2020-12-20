@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel='icon' href='images/favicon.ico' type='image/x-icon'/ >
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <title>Laboratory Group Christmas 2020</title>
     <link rel="stylesheet" type="text/css" href="/index.css" />
     <script src="./bundle.js"></script>
@@ -21,25 +21,33 @@
       id="merry-xmas"
     />
     <div id="santa-woman" class="santa-woman__container">
-      <div class="santa-woman__mask" id="mask">
+      <div class="santa-woman__mask__container" id="mask-container">
         <img
-          src="/images/pull_down_text.png"
-          alt="húzd le a maszkot"
-          class="santa-woman__mask-text"
+          class="santa-woman__mask-strings"
+          src="/images/mask_lines_front.png"
+          alt="maszk fülbeakasztója"
           draggable="false"
         />
-        <img
-          src="/images/arrow_down.png"
-          alt="lefelé táncoló nyíl"
-          class="arrow-down"
-          draggable="false"
-        />
-        <img
-          src="/images/mask.png"
-          alt="orvosi maszk"
-          class="santa-woman__mask-img"
-          draggable="false"
-        />
+        <div class="santa-woman__mask-main" id="mask">
+          <img
+            src="/images/pull_down_text.png"
+            alt="húzd le a maszkot"
+            class="santa-woman__mask-main-text"
+            draggable="false"
+          />
+          <img
+            src="/images/arrow_down.png"
+            alt="lefelé táncoló nyíl"
+            class="arrow-down"
+            draggable="false"
+          />
+          <img
+            src="/images/mask.png"
+            alt="orvosi maszk"
+            class="santa-woman__mask-main-img"
+            draggable="false"
+          />
+        </div>
       </div>
     </div>
   </body>
