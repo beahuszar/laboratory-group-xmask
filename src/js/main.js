@@ -1,13 +1,14 @@
 window.onload = () => {
   const mask = document.getElementById('mask');
+  const body = document.querySelector('body');
 
   mask.addEventListener('mousedown', dragStart);
   mask.addEventListener('mousemove', dragMove);
-  mask.addEventListener('mouseup', dragOver);
+  body.addEventListener('mouseup', dragOver);
 
   mask.addEventListener('touchstart', dragStart);
   mask.addEventListener('touchmove', dragMove);
-  mask.addEventListener('touchend', dragOver);
+  body.addEventListener('touchend', dragOver);
 };
 
 let active = false;
@@ -28,6 +29,7 @@ function dragMove(e) {
 
 function dragOver(e) {
   active = false;
+  mask.style.transform = `translate(3px, calc(65vh * 0.43))`;
 }
 
 function moveMask(mask, actionY) {
