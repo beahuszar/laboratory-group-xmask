@@ -1,5 +1,8 @@
 import xmasmusic from '../media/Background_Music_Box_Music.mp3';
 
+let active = false;
+const music = new Audio(xmasmusic);
+
 window.onload = () => {
   const mask = document.getElementById('mask');
   const body = document.querySelector('body');
@@ -13,9 +16,6 @@ window.onload = () => {
   body.addEventListener('touchend', dragOver);
 };
 
-let active = false;
-const music = new Audio(xmasmusic);
-
 function dragStart(e) {
   active = true;
   music.play();
@@ -23,6 +23,8 @@ function dragStart(e) {
 
 function dragMove(e) {
   if (active) {
+    const xmasText = document.getElementById('merry-xmas');
+    xmasText.style.display = 'block';
     if (e.type === 'touchmove') {
       moveMask(e.currentTarget, e.touches[0].clientY);
     } else {
