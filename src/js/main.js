@@ -26,7 +26,7 @@ window.onload = () => {
   maskContainer.addEventListener('transitionend', maskAnimationOver);
 
   mask.addEventListener('mousedown', dragStart);
-  mask.addEventListener('touchstart', dragStart);
+  mask.addEventListener('touchstart', dragStart, { passive: true });
 
   body.addEventListener('mousemove', dragMove);
   body.addEventListener('touchmove', dragMove);
