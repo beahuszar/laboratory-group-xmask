@@ -23,7 +23,7 @@ window.onload = () => {
   body = document.querySelector('body');
   woman = document.getElementById('santa-woman');
 
-  mask.addEventListener('transitionend', maskAnimationOver);
+  maskContainer.addEventListener('transitionend', maskAnimationOver);
 
   mask.addEventListener('mousedown', dragStart);
   mask.addEventListener('touchstart', dragStart);
@@ -39,7 +39,7 @@ window.onload = () => {
 };
 
 function maskAnimationOver(e) {
-  // music.pause();
+  music.pause();
 }
 
 function dragStart(e) {
@@ -47,7 +47,7 @@ function dragStart(e) {
   if (mask.style.transition !== '') {
     mask.style.transition = '';
   }
-  // music.play();
+  music.play();
 }
 
 function dragMove(e) {
@@ -65,7 +65,8 @@ function dragMove(e) {
 
 function dragOver(e) {
   active = false;
-  // mask.style.transition = '3s ease-in';
+  maskContainer.style.height = `${maskContainerIninitalHeight}px`;
+  maskContainer.style.transition = '3s ease-in';
 }
 
 function moveMask(cursorY) {
