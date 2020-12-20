@@ -6,6 +6,7 @@ const music = new Audio(xmasmusic);
 window.onload = () => {
   const mask = document.getElementById('mask');
   const body = document.querySelector('body');
+  const woman = document.getElementById('santa-woman');
 
   mask.addEventListener('mousedown', dragStart);
   mask.addEventListener('mousemove', dragMove);
@@ -14,6 +15,9 @@ window.onload = () => {
   mask.addEventListener('touchstart', dragStart);
   mask.addEventListener('touchmove', dragMove);
   body.addEventListener('touchend', dragOver);
+
+  woman.style.opacity = '1';
+  woman.style.transition = 'opacity 2s ease-in';
 };
 
 function dragStart(e) {
