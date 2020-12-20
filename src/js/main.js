@@ -1,3 +1,5 @@
+import xmasmusic from '../media/Background_Music_Box_Music.mp3';
+
 window.onload = () => {
   const mask = document.getElementById('mask');
   const body = document.querySelector('body');
@@ -12,9 +14,11 @@ window.onload = () => {
 };
 
 let active = false;
+const music = new Audio(xmasmusic);
 
 function dragStart(e) {
   active = true;
+  music.play();
 }
 
 function dragMove(e) {
@@ -30,6 +34,7 @@ function dragMove(e) {
 function dragOver(e) {
   active = false;
   mask.style.transform = `translate(3px, calc(65vh * 0.43))`;
+  music.pause();
 }
 
 function moveMask(mask, actionY) {
