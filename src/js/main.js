@@ -22,13 +22,17 @@ window.onload = () => {
 
 function dragStart(e) {
   active = true;
+  if (mask.style.transition !== '') {
+    mask.style.transition = '';
+  }
   music.play();
 }
 
 function dragMove(e) {
   if (active) {
     const xmasText = document.getElementById('merry-xmas');
-    xmasText.style.display = 'block';
+    xmasText.style.opacity = '1';
+    xmasText.style.transition = 'opacity 2s ease-in';
     if (e.type === 'touchmove') {
       moveMask(e.currentTarget, e.touches[0].clientY);
     } else {
@@ -40,6 +44,7 @@ function dragMove(e) {
 function dragOver(e) {
   active = false;
   mask.style.transform = `translate(3px, calc(65vh * 0.43))`;
+  mask.style.transition = '3s ease-in';
   music.pause();
 }
 
