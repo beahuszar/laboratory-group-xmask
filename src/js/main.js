@@ -8,6 +8,7 @@ window.onload = () => {
   const body = document.querySelector('body');
   const woman = document.getElementById('santa-woman');
 
+  mask.addEventListener('transitionend', maskAnimationOver);
   mask.addEventListener('mousedown', dragStart);
   mask.addEventListener('mousemove', dragMove);
   body.addEventListener('mouseup', dragOver);
@@ -19,6 +20,10 @@ window.onload = () => {
   woman.style.opacity = '1';
   woman.style.transition = 'opacity 2s ease-in';
 };
+
+function maskAnimationOver(e) {
+  music.pause();
+}
 
 function dragStart(e) {
   active = true;
@@ -45,7 +50,6 @@ function dragOver(e) {
   active = false;
   mask.style.transform = `translate(3px, calc(65vh * 0.43))`;
   mask.style.transition = '3s ease-in';
-  music.pause();
 }
 
 function moveMask(mask, actionY) {
