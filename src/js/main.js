@@ -25,29 +25,32 @@ window.onload = () => {
 
   maskContainer.addEventListener('transitionend', maskAnimationOver);
 
-  mask.addEventListener('mousedown', dragStart);
-  mask.addEventListener('touchstart', dragStart, { passive: true });
+  maskContainer.addEventListener('mousedown', dragStart);
+  maskContainer.addEventListener('touchstart', dragStart);
 
-  body.addEventListener('mousemove', dragMove);
-  body.addEventListener('touchmove', dragMove);
+  maskContainer.addEventListener('mousemove', dragMove);
+  maskContainer.addEventListener('touchmove', dragMove);
 
-  body.addEventListener('mouseup', dragOver);
-  body.addEventListener('touchend', dragOver);
+  maskContainer.addEventListener('mouseup', dragOver);
+  maskContainer.addEventListener('touchend', dragOver);
 };
 
 function maskAnimationOver(e) {
-  music.pause();
+  if (!music.paused) {
+    music.pause();
+  }
 }
 
 function dragStart(e) {
+  e.preventDefault();
   active = true;
   if (maskContainer.style.transition !== '') {
     maskContainer.style.transition = '';
   }
-  music.play();
 }
 
 function dragMove(e) {
+  e.preventDefault();
   if (active) {
     const xmasText = document.getElementById('merry-xmas');
     xmasText.style.opacity = '1';
@@ -61,7 +64,11 @@ function dragMove(e) {
 }
 
 function dragOver(e) {
+  e.preventDefault();
   active = false;
+  if (music.paused) {
+    music.play();
+  }
   maskContainer.style.height = `${maskContainerIninitalHeight}px`;
   maskContainer.style.transition = '3s ease-in';
 }
