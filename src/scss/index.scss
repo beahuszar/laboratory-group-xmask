@@ -39,6 +39,10 @@ body {
   margin: 5vh;
 }
 
+#mask-container {
+  display: hidden;
+}
+
 .santa-woman {
   &__container {
     height: $santa-woman-height;
