@@ -43,6 +43,45 @@ body {
   display: hidden;
 }
 
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+
+  hr {
+    border: 0;
+    margin: 0;
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 2s ease infinite;
+  }
+
+  & :first-child {
+    background: #ffb21c;
+    animation-delay: -1.5s;
+  }
+
+  & :nth-child(2) {
+    background: #ffb21c;
+    animation-delay: -1s;
+  }
+
+  & :nth-child(3) {
+    background: #ffb21c;
+    animation-delay: -0.5s;
+  }
+
+  & :last-child {
+    background: #ffb21c;
+  }
+}
+
 .santa-woman {
   &__container {
     height: $santa-woman-height;
@@ -51,6 +90,7 @@ body {
     background: url('images/woman.png') bottom no-repeat;
     background-size: auto 100%;
     transition: ease-in;
+    opacity: 0;
   }
 
   &__mask__container {

@@ -13,6 +13,7 @@ let woman;
 let xmasText;
 let maskText;
 let arrowDown;
+let loader;
 const music = new Audio(xmasmusic);
 
 window.onload = () => {
@@ -24,16 +25,14 @@ window.onload = () => {
   maskContainer = document.getElementById('mask-container');
   maskContainerIninitalHeight = maskContainer.getBoundingClientRect().height;
   maskContainerIninitalBottom = maskContainer.getBoundingClientRect().bottom;
-  maskContainer.style.visibility = 'visible';
 
   maskText = document.getElementById('mask-text');
-  arrowDown = document.getElementById('arrow-down');
-
-  body = document.querySelector('body');
+  xmasText = document.getElementById('merry-xmas');
 
   woman = document.getElementById('santa-woman');
-
-  xmasText = document.getElementById('merry-xmas');
+  arrowDown = document.getElementById('arrow-down');
+  loader = document.getElementById('loader');
+  body = document.querySelector('body');
 
   maskContainer.addEventListener('transitionend', maskAnimationOver);
 
@@ -45,7 +44,15 @@ window.onload = () => {
 
   body.addEventListener('mouseup', dragOver);
   body.addEventListener('touchend', dragOver);
+
   document.addEventListener('mouseleave', dragOver);
+
+  setTimeout(function () {
+    woman.style.transition = 'opacity 0.5s ease-in';
+    maskContainer.style.opacity = '1';
+    woman.style.opacity = '1';
+    loader.style.display = 'none';
+  }, 1500);
 };
 
 function maskAnimationOver(e) {
