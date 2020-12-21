@@ -7,6 +7,7 @@ let maskInitialBottom;
 let maskIntialCenter;
 let maskContainer;
 let maskContainerIninitalHeight;
+let maskContainerIninitalBottom;
 let body;
 let woman;
 const music = new Audio(xmasmusic);
@@ -19,6 +20,7 @@ window.onload = () => {
 
   maskContainer = document.getElementById('mask-container');
   maskContainerIninitalHeight = maskContainer.getBoundingClientRect().height;
+  maskContainerIninitalBottom = maskContainer.getBoundingClientRect().bottom;
 
   body = document.querySelector('body');
   woman = document.getElementById('santa-woman');
@@ -70,7 +72,7 @@ function dragOver(e) {
     music.play();
   }
   maskContainer.style.height = `${maskContainerIninitalHeight}px`;
-  maskContainer.style.transition = '3s ease-in';
+  maskContainer.style.transition = '15s ease-in';
 }
 
 function moveMask(cursorY) {
@@ -80,7 +82,7 @@ function moveMask(cursorY) {
   const wouldShrinkOriginalSize =
     positionDiff < 0 && maskInitialTop === maskTop;
 
-  if (!wouldShrinkOriginalSize) {
+  if (!wouldShrinkOriginalSize && cursorY < maskContainerIninitalBottom) {
     maskContainer.style.height = `${
       maskContainerIninitalHeight + positionDiff
     }px`;
