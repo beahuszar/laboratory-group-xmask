@@ -45,6 +45,7 @@ window.onload = () => {
 
   body.addEventListener('mouseup', dragOver);
   body.addEventListener('touchend', dragOver);
+  document.addEventListener('mouseleave', dragOver);
 };
 
 function maskAnimationOver(e) {
