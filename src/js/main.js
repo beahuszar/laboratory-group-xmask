@@ -33,9 +33,6 @@ window.onload = () => {
 
   body.addEventListener('mouseup', dragOver);
   body.addEventListener('touchend', dragOver);
-
-  woman.style.opacity = '1';
-  woman.style.transition = 'opacity 2s ease-in';
 };
 
 function maskAnimationOver(e) {
