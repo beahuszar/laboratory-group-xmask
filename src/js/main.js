@@ -10,6 +10,7 @@ let maskContainerIninitalHeight;
 let maskContainerIninitalBottom;
 let body;
 let woman;
+let xmasText;
 const music = new Audio(xmasmusic);
 
 window.onload = () => {
@@ -25,6 +26,8 @@ window.onload = () => {
   body = document.querySelector('body');
   woman = document.getElementById('santa-woman');
 
+  xmasText = document.getElementById('merry-xmas');
+
   maskContainer.addEventListener('transitionend', maskAnimationOver);
 
   maskContainer.addEventListener('mousedown', dragStart);
@@ -38,6 +41,7 @@ window.onload = () => {
 };
 
 function maskAnimationOver(e) {
+  xmasText.style.opacity = '0';
   if (!music.paused) {
     music.pause();
   }
@@ -54,9 +58,8 @@ function dragStart(e) {
 function dragMove(e) {
   e.preventDefault();
   if (active) {
-    const xmasText = document.getElementById('merry-xmas');
     xmasText.style.opacity = '1';
-    xmasText.style.transition = 'opacity 2s ease-in';
+    xmasText.style.transition = 'opacity 1s ease-in';
     if (e.type === 'touchmove') {
       moveMask(e.touches[0].clientY);
     } else {
