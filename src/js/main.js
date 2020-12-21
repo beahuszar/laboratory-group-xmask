@@ -53,6 +53,9 @@ function dragStart(e) {
   if (maskContainer.style.transition !== '') {
     maskContainer.style.transition = '';
   }
+  if (music.paused) {
+    music.play();
+  }
 }
 
 function dragMove(e) {
@@ -71,11 +74,8 @@ function dragMove(e) {
 function dragOver(e) {
   e.preventDefault();
   active = false;
-  if (music.paused) {
-    music.play();
-  }
   maskContainer.style.height = `${maskContainerIninitalHeight}px`;
-  maskContainer.style.transition = '15s ease-in';
+  maskContainer.style.transition = '10s ease-in';
 }
 
 function moveMask(cursorY) {
