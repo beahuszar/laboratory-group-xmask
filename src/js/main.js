@@ -45,7 +45,7 @@ window.onload = () => {
   body.addEventListener('mouseup', dragOver);
   body.addEventListener('touchend', dragOver);
 
-  document.addEventListener('mouseleave', dragOver);
+  body.addEventListener('mouseout', onWindowleave);
 
   setTimeout(function () {
     woman.style.transition = 'opacity 0.5s ease-in';
@@ -54,6 +54,17 @@ window.onload = () => {
     loader.style.display = 'none';
   }, 1500);
 };
+
+function onWindowleave(e) {
+  if (
+    e.clientY <= 0 ||
+    e.clientX <= 0 ||
+    e.clientX >= window.innerWidth ||
+    e.clientY >= window.innerHeight
+  ) {
+    dragOver(e);
+  }
+}
 
 function maskAnimationOver(e) {
   xmasText.style.opacity = '0';
@@ -92,9 +103,11 @@ function dragMove(e) {
 
 function dragOver(e) {
   e.preventDefault();
-  active = false;
-  maskContainer.style.height = `${maskContainerIninitalHeight}px`;
-  maskContainer.style.transition = '10s ease-in';
+  if (active) {
+    active = false;
+    maskContainer.style.height = `${maskContainerIninitalHeight}px`;
+    maskContainer.style.transition = '10s ease-in';
+  }
 }
 
 function moveMask(cursorY) {
